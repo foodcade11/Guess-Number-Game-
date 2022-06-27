@@ -2,6 +2,7 @@ let winAudio = new Audio ("win.mp3");
 let failAudio = new Audio ("fail.mp3");
 let nearFail = new Audio ("nearFail.mp3");
 var count = 0;
+const again= document.querySelector('.again');
 
 
 let secretNumber = Math.trunc(Math.random()* 20 +1);
@@ -42,6 +43,7 @@ btnCheck.addEventListener('click' , function(){
     } 
 //when the count is 5 and guessnumber and secretnumber are is equal
     else if(count === 5 && guessNumber === secretNumber){
+        document.querySelector('.lets-paly').textContent = 'HAMPALYO 🎉✨';
         document.querySelector('.message').textContent = ' 🎉 Correct Number';
         winAudio.play();
         document.querySelector("body").style.backgroundColor ="green";
@@ -52,6 +54,7 @@ btnCheck.addEventListener('click' , function(){
     } 
     // when the guessnumber and secretnumber
     else if (guessNumber === secretNumber){
+        document.querySelector('.lets-paly').textContent = 'HAMPALYO 🎉✨';
         document.querySelector('.message').textContent = ' 🎉 Correct Number';
         winAudio.play();
         document.querySelector("body").style.backgroundColor ="green";
@@ -61,5 +64,20 @@ btnCheck.addEventListener('click' , function(){
 
     }
 
+
     
+})
+
+again.addEventListener('click', function(){
+    count=0;     
+    secretNumber = Math.trunc(Math.random()* 20 +1);
+    document.querySelector('.lets-paly').textContent = 'Lets play! 🤩';
+    document.querySelector('.number').textContent= '?';
+    btnCheck.disabled= false;
+    document.querySelector('.message').textContent = ' Start guessing...';
+    document.querySelector('.guess').value = '';
+    btnCheck.style.backgroundColor = 'blue';
+    document.querySelector("body").style.backgroundColor ="#f0db4f";
+    console.log(secretNumber);
+
 })
